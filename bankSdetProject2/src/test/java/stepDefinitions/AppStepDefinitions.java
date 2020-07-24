@@ -22,10 +22,11 @@ public class AppStepDefinitions extends Base {
 		bankHomePage.clickOnApplyMortgageButton();
 	}
 
-	@Then("^$user is on mortgage loan page")
+	@Then("^user is on mortgage loan page$")
 	public void user_is_on_mortgage_loan_page() throws Throwable{
+		SoftAssert softassert=new SoftAssert();
 	
-	Assert.assertTrue(driver.getCurrentUrl().equals(Base.getUrl2()));
+		softassert.assertTrue(driver.getCurrentUrl().equals(Base.getUrl2()));
 		logger.info("User is on the Correct Page");
 
 	}
