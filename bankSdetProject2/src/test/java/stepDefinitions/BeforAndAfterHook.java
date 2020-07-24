@@ -13,9 +13,10 @@ import cucumber.api.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BeforAndAfterHook extends Base {
+	
 	@Before
-	public void beforeHook() throws Throwable{
-		if (Base.getBrowser().equalsIgnoreCase("chrome")) {
+	public void beforeHook(){
+		if (Base.getBrowser().equals("chrome")) {
 			WebDriverManager.chromedriver().setup(); driver=new ChromeDriver();
 		}
 		else if (Base.getBrowser().equalsIgnoreCase("ie")) {WebDriverManager.iedriver().setup();
@@ -30,12 +31,13 @@ public class BeforAndAfterHook extends Base {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(getPageLoadTime(), TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(getImplicit(), TimeUnit.SECONDS);
-		driver.manage().deleteAllCookies();
+		
 	}
 	@After
-	public void afterHook()throws Throwable {
-		driver.close();
-		driver.quit();
+	public void afterHook(){
+		Base.tearDown();
+		
+		
 	}
 
 }

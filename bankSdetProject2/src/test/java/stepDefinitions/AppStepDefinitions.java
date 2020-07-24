@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import org.junit.Assert;
 import org.testng.asserts.SoftAssert;
 
 import core.Base;
@@ -13,7 +14,7 @@ public class AppStepDefinitions extends Base {
 
 	@Given("^user is on bank homepage$")
 	public void user_is_on_bank_homepage()throws Throwable {
-		initilizeUrl1();
+		Base.initilizeUrl1();
 	}
 
 	@When("^user clicks on Mortgage Loan button$")
@@ -23,8 +24,8 @@ public class AppStepDefinitions extends Base {
 
 	@Then("^$user is on mortgage loan page")
 	public void user_is_on_mortgage_loan_page() throws Throwable{
-		SoftAssert softAssert = new SoftAssert();
-		softAssert.assertTrue(driver.getCurrentUrl().equals(Base.getUrl2()));
+	
+	Assert.assertTrue(driver.getCurrentUrl().equals(Base.getUrl2()));
 		logger.info("User is on the Correct Page");
 
 	}

@@ -14,8 +14,8 @@ public class Base {
 	public static WebDriver driver;
 	public static Properties properties;
 	public static Logger logger;
-	//private String userdirectory = "user.dir";
-	//private String pathToFile = "src\\test\\resources\\inputData\\bankProject.properties";
+	//private String userdirectory = System.getProperty("user.dir");
+//	private String pathToFile = "src\\test\\resources\\inputData\\bankProject.properties";
 	//private String pathToPP = userdirectory + pathToFile;
 	private static String pathToPP=".\\src\\test\\resources\\inputData\\bankProject.properties";
 
@@ -28,10 +28,10 @@ public class Base {
 			try {
 				properties.load(reader);
 				reader.close();
-			} catch (FileNotFoundException e) {
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		} catch (IOException e) {
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		logger = Logger.getLogger("file4j_File");
