@@ -15,27 +15,27 @@ public class ByNewHomePageObj extends Base {
 
 	@FindBy(how = How.CSS, using = "input[name='Firstname']")
 	private WebElement fName;
-	@FindBy(how = How.ID, using = "Lastname")
+	@FindBy(how = How.XPATH, using = "//input[@name='Lastname']")
 	private WebElement lName;
-	@FindBy(how = How.NAME, using = "Number")
+	@FindBy(how = How.XPATH, using = "//input[@name='Number']")
 	private WebElement number;
-	@FindBy(how = How.NAME, using = "Phonetype")
+	@FindBy(how = How.XPATH, using = "//select[@name='Phonetype']")
 	private WebElement pType;
 	@FindBy(how = How.XPATH, using = "(//input[@type='email'])[1]")
 	private WebElement email;
-	@FindBy(how = How.NAME, using = "Confirmemail")
+	@FindBy(how = How.XPATH, using = "//input[@name='Confirmemail']")
 	private WebElement cEmail;
-	@FindBy(how = How.NAME, using = "Address")
+	@FindBy(how = How.XPATH, using = "//input[@name='Address']")
 	private WebElement address;
-	@FindBy(how = How.NAME, using = "Zipcode")
+	@FindBy(how = How.XPATH, using = "//input[@name='Zipcode']")
 	private WebElement zipcode;
-	@FindBy(how = How.NAME, using = "ssn")
+	@FindBy(how = How.XPATH, using = "//input[@name='ssn']")
 	private WebElement socialSN;
-	@FindBy(how = How.NAME, using = "DOB")
+	@FindBy(how = How.XPATH, using = "//input[@name='DOB']")
 	private WebElement dOB;
-	@FindBy(how = How.NAME, using = "education")
+	@FindBy(how = How.XPATH, using = "//select[@name='education']")
 	private WebElement edu;
-	@FindBy(how = How.NAME, using = "maritalstatus")
+	@FindBy(how = How.XPATH, using = "//select[@name='maritalstatus']")
 	private WebElement maritalS;
 	@FindBy(how = How.CSS, using = "input[value='U.S. citizen']")
 	private WebElement citizen;
@@ -57,7 +57,7 @@ public class ByNewHomePageObj extends Base {
 	private WebElement agree;
 	@FindBy(how = How.XPATH, using = "//input[@value='Send Application']")
 	private WebElement sendApp;
-	@FindBy(how = How.XPATH, using = "((//div[text()='Thank you for your message. It has been sent.'])[1]")
+	@FindBy(how = How.XPATH, using = "(//div[text()='Thank you for your message. It has been sent.'])[1]")
 	private WebElement message2;
 
 	public void enterFName(String firstName) {
@@ -144,7 +144,7 @@ public class ByNewHomePageObj extends Base {
 
 	public void selectMil(String miliStu) {
 		Select select = new Select(maritalS);
-		select.deselectByValue(miliStu);
+		select.selectByValue(miliStu);
 	}
 
 	public boolean isSelectedYesDep() {
@@ -195,6 +195,15 @@ public class ByNewHomePageObj extends Base {
 	public boolean isDisplyMessage2() {
 		boolean messageApp = message2.isDisplayed();
 		return messageApp;
+	}
+
+	public void clickOnAgree() {
+		agree.click();
+	}
+
+	public String getMessage2Text() {
+		String successMessage = message2.getText();
+		return successMessage;
 	}
 
 }
