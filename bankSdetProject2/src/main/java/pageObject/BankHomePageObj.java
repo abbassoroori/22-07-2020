@@ -8,8 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import core.Base;
 import utilty.DBUtility;
 
-public class BankHomePage extends Base {
-	public BankHomePage() {
+public class BankHomePageObj extends Base {
+	public BankHomePageObj() {
 		PageFactory.initElements(driver, this);
 
 	}
@@ -19,5 +19,15 @@ public class BankHomePage extends Base {
 
 	public void clickOnApplyMortgageButton() {
 		applyMortgageButton.click();
+	}
+
+	public String getUrl() {
+		String url = driver.getCurrentUrl();
+		return url;
+	}
+
+	public boolean urlIsCorrect() {
+		boolean urlIsOk = getUrl().equals(Base.getUrl2());
+		return urlIsOk;
 	}
 }

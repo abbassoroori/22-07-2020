@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "classpath:features", 
 glue = { "stepDefinitions"},
-tags = {"@gilan"},
+tags = {"@gilan,@candy,@isoK"},
 dryRun = false, 
 monochrome = true, 
 strict = false, 
