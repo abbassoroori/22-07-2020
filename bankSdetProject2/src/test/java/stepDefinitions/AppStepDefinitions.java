@@ -24,6 +24,7 @@ public class AppStepDefinitions extends Base {
 	@Given("^user is on bank homepage$")
 	public void user_is_on_bank_homepage() throws Throwable {
 		Base.initilizeUrl1();
+		logger.info(" it is ok");
 	}
 
 	@When("^user clicks on Mortgage Loan button$")
